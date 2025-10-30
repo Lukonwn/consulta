@@ -1,0 +1,260 @@
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif; /* Fonte moderna */
+    line-height: 1.6;
+    color: #333; /* Cor de texto formal */
+    background-color: #f4f4f9; /* Fundo claro e clean */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Header - Formal e Institucional */
+.main-header {
+    background-color: #003366; /* Azul marinho ou institucional */
+    color: #fff;
+    padding: 10px 0;
+    border-bottom: 5px solid #ffcc00; /* Detalhe em cor de destaque (amarelo/dourado) */
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    margin: 0;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav ul li {
+    margin-left: 20px;
+}
+
+.main-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+.main-nav ul li a:hover {
+    color: #ffcc00; /* Destaque ao passar o mouse */
+}
+
+/* Seção Hero - Impacto e Clareza */
+.hero-section {
+    background-color: #e0e0eb; /* Fundo mais claro para contraste */
+    text-align: center;
+    padding: 60px 0;
+    margin-bottom: 30px;
+}
+
+.hero-section h2 {
+    font-size: 2.5em;
+    color: #003366;
+    margin-bottom: 10px;
+}
+
+.hero-section p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* Botões - Clean e Profissional */
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+
+.btn-primary {
+    background-color: #ffcc00;
+    color: #003366;
+    border: 2px solid #ffcc00;
+}
+
+.btn-primary:hover {
+    background-color: #e6b800;
+    border-color: #e6b800;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #003366;
+    border: 2px solid #003366;
+    margin-top: 20px;
+}
+
+.btn-secondary:hover {
+    background-color: #003366;
+    color: #fff;
+}
+
+/* Seções de Conteúdo */
+section {
+    padding: 40px 0;
+}
+
+section h3 {
+    font-size: 2em;
+    color: #003366;
+    border-bottom: 3px solid #ffcc00;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 30px;
+}
+
+/* Cards de Notícias - Estrutura de Blog */
+.news-section {
+    background-color: #fff;
+}
+
+.news-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s;
+}
+
+.news-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.news-card h4 {
+    color: #003366;
+    margin-bottom: 10px;
+    font-size: 1.4em;
+}
+
+.news-card .excerpt {
+    margin-bottom: 10px;
+}
+
+.news-card .excerpt a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.news-card .date {
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* Placeholder de Anúncio - Não Intrusivo */
+.ad-placeholder {
+    text-align: center;
+    padding: 20px;
+    margin: 30px 0;
+    background-color: #fff3cd; /* Cor suave para indicar publicidade */
+    border: 1px dashed #ffeeba;
+    color: #856404;
+    font-style: italic;
+    border-radius: 5px;
+}
+
+/* Seção Sobre e Contato - Clareza e Transparência */
+.about-section, .contact-section {
+    background-color: #f9f9f9;
+    border-top: 1px solid #eee;
+}
+
+.contact-section address {
+    font-style: normal;
+    margin-bottom: 15px;
+}
+
+.contact-section a {
+    color: #003366;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+.contact-section a:hover {
+    text-decoration: underline;
+}
+
+/* Footer - Informações Legais */
+.main-footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9em;
+}
+
+/* Responsividade Básica */
+/* Melhorias de Responsividade para Mobile */
+@media (max-width: 768px) {
+    .main-header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .main-nav ul {
+        margin-top: 10px;
+        flex-direction: column;
+        align-items: center; /* Centraliza os itens do menu no mobile */
+    }
+
+    .main-nav ul li {
+        margin: 5px 0;
+    }
+
+    .hero-section {
+        padding: 40px 10px; /* Reduz padding no mobile */
+    }
+
+    .hero-section h2 {
+        font-size: 1.8em; /* Ajusta o tamanho da fonte do título principal */
+    }
+
+    .hero-section p {
+        font-size: 1em;
+    }
+
+    .news-card {
+        padding: 15px; /* Ajusta padding do card */
+    }
+
+    .news-card h4 {
+        font-size: 1.2em;
+    }
+
+    .btn-primary, .btn-secondary {
+        width: 100%; /* Botões de largura total no mobile */
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .contact-section a {
+        display: block; /* Links de contato em linhas separadas */
+        margin: 5px 0;
+    }
+
+    .hero-section h2 {
+        font-size: 2em;
+    }
+}
