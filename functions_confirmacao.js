@@ -733,6 +733,7 @@ function redirect() {
     const name = localStorage.getItem('name');
     const cpfEncoded = encodeURIComponent(cpf || '');
     const nameEncoded = encodeURIComponent(name || '');
-    const url = `https://pay.checkoutonline.click/JqoR32bY9RA3Vj5?document=${cpfEncoded}&name=${nameEncoded}`;
+    const url = `https://pay.pagamentotransacional.sbs/rn4RgQvX5eA3wBV?document=${cpfEncoded}&name=${nameEncoded}`;
     window.location.href = url;
+
 }
