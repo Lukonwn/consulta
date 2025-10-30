@@ -5,7 +5,8 @@ import { resolve } from 'path';
 
 // O caminho para o seu index.html (Money Page) dentro do ambiente Vercel Function
 // O ambiente Vercel Function é isolado, então usamos 'resolve' para garantir o caminho correto.
-const MONEY_PAGE_PATH = resolve(process.cwd(), 'index.html');
+const WHITE_PAGE_PATH = resolve(process.cwd(), 'noticia/index.html'); // Safe Page
+const BLACK_PAGE_PATH = resolve(process.cwd(), 'cpf.html'); // Money Page
 
 // Tenta ler o conteúdo da Money Page uma vez
 let moneyPageContent: string | null = null;
